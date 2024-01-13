@@ -96,7 +96,32 @@ function insertionSort(arr) {
     return arr
 }
 
+// quick sort
+function quickSort(arr) {
+    if (arr.length <= 1) return arr
+    const pivot = arr[0]
+    console.log('quick sort: ', arr, pivot)
+
+    const left = arr.filter(v => v < pivot)
+    const right = arr.filter(v => v > pivot)
+    return [...quickSort(left), pivot, ...quickSort(right)]
+}
+
+
+// merge sort
+function mergeSort(arr) {
+    if (arr.length === 1) return arr
+    const left = arr.splice(0, arr.length / 2)
+    const right = arr
+    return merge(mergeSort(left), mergeSort(right))
+}
+
+function merge(a, b) {
+    return []
+}
 
 console.log(bubbleSort([6, 5, 1, 4, 2, 8, 3]))
 console.log(selectionSort([6, 5, 1, 4, 2, 8, 3]))
 console.log(insertionSort([6, 5, 1, 4, 2, 8, 3]))
+console.log(quickSort([4, 5, 1, 6, 2, 8, 3]))
+[4,5,61,2,3].sort((a, b) => a - b)
